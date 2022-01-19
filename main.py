@@ -136,7 +136,8 @@ class notepad() :
             
     def c_style(self) :
         self.editor.insert('0.1', "#include <stdio.h>\n#include <string.h>\n#include <stdlib.h>\n\nint main()\n{\n\t return 0;\n}")
-
+    def cpp_style(self) :
+        self.editor.insert('0.1', "#include <iostream>\n#include <string>\n\nusing namespace std;\n\nint main(int argc, char *argv[])\n{\n\treturn 0;\n}")
     def c_plus_plus_style(self) :
         self.editor.insert('0.1', '#include <iostream>\n#include <string>\n#include <array>\n\nusing namespace std;\n\nint main()\n{\n\treturn 0;\n}')
 
@@ -214,6 +215,7 @@ class notepad() :
         self.menu_code.add_command(label = "C# Style", command = partial(notepad.c_sharp_style,self))    
         self.menu_code.add_command(label = "c++ Style", command = partial(notepad.c_plus_plus_style, self))
         self.menu_code.add_command(label = "c Style", command = partial(notepad.c_style, self))
+        self.menu_code.add_command(label = "C++ style", command = partial(notepad.cpp_style, self))
     def menu_edit(self) :
         self.menu_edit = Menu(self.mn , tearoff = 0, bg = "black", fg = "green" , activeborderwidth = "2", activebackground = 'blue', activeforeground = "white")
         self.menu_edit.add_command(label = "Color Text", command = partial(notepad.menu_font_color,self))
